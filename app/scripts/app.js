@@ -5,7 +5,8 @@ angular.module('graylog2StreamdashApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'streamsServices'
+  'streamsServices',
+  'messagesServices'
 ])
   .config(function ($httpProvider) {
 	$httpProvider.defaults.withCredentials = true;
@@ -16,6 +17,10 @@ angular.module('graylog2StreamdashApp', [
       .when('/', {
         templateUrl: 'views/streams.html',
         controller: 'StreamsCtrl'
+      })
+      .when('/messages/:id', {
+        templateUrl: 'views/messages.html',
+        controller: 'MessagesCtrl'
       })
       .otherwise({
         redirectTo: '/'
