@@ -2,7 +2,6 @@
 
 angular.module('graylog2StreamdashApp')
   .controller('MessagesCtrl', ['$scope', '$routeParams', 'Message', 'Stream', 'StreamAlert', function ($scope, $routeParams, Message, Stream, StreamAlert) {
-	console.log($routeParams);
 	Stream.get({id: $routeParams.id}, function(response) {
 		$scope.stream = response;
 	});

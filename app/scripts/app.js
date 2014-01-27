@@ -5,6 +5,8 @@ angular.module('graylog2StreamdashApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
+  'base64',
+  'settingsServices',
   'streamsServices',
   'streamAlertsServices',
   'messagesServices'
@@ -18,6 +20,10 @@ angular.module('graylog2StreamdashApp', [
       .when('/', {
         templateUrl: 'views/streams.html',
         controller: 'StreamsCtrl'
+      })
+      .when('/settings', {
+        templateUrl: 'views/settings.html',
+        controller: 'SettingsCtrl'
       })
       .when('/messages/:id', {
         templateUrl: 'views/messages.html',
