@@ -1,7 +1,16 @@
 <h4>Messages in "{{stream.title}}"</h4>
 
-<ul>
-	<li ng-repeat="message in messages">
-		{{message.message}}
-	</li>
-</ul>
+<div ng-repeat="streamAlert in streamAlerts" class="alert alert-danger">
+	{{streamAlert.description}}
+</div>
+
+<table class="table table-striped">
+	<tr>
+		<th>Timestamp</th>
+		<th>Message</th>
+	</tr>
+	<tr ng-repeat="message in messages">
+		<td>{{message.timestamp}}</td>
+		<td>{{message.message}}</td>
+	</tr>
+</table>

@@ -1,7 +1,5 @@
 /* Space out content a bit */
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -34,7 +32,6 @@ body {
 /* Customize container */
 @media (min-width: 768px) {
   .container {
-    max-width: 730px;
   }
 }
 .container-narrow > hr {

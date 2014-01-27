@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>Graylog2 Stream Dashboard</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -42,7 +42,7 @@
 	      <li class="dropdown" ng-controller="StreamsCtrl">
 	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Select Stream <b class="caret"></b></a>
 	        <ul class="dropdown-menu">
-				<li ng-repeat="stream in streams">
+				<li ng-repeat="stream in streams|orderBy:title">
 					<a href="#/messages/{{stream.id}}">{{stream.title}}</a>
 				</li>
 	        </ul>
@@ -55,10 +55,10 @@
 	</nav>
 	
     <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+    <div class="container"ng-view=""></div>
 
-	<div class="footer">
-	  <p>♥ from the TORCH team</p>
+	<div id="footer" class="footer">
+				<p>♥ from the TORCH team</p>
 	</div>
 
     <!--[if lt IE 9]>
@@ -83,6 +83,7 @@
         <script src="scripts/controllers/streamsctrl.js"></script>
         <script src="scripts/controllers/messagesctrl.js"></script>
 		<script src="scripts/services/streams_services.js"></script>
+		<script src="scripts/services/stream_alerts_services.js"></script>
 		<script src="scripts/services/messages_services.js"></script>
         <!-- endbuild -->
 </body>

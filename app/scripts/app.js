@@ -6,6 +6,7 @@ angular.module('graylog2StreamdashApp', [
   'ngSanitize',
   'ngRoute',
   'streamsServices',
+  'streamAlertsServices',
   'messagesServices'
 ])
   .config(function ($httpProvider) {
