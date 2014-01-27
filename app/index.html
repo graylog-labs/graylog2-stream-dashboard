@@ -24,8 +24,42 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+	<nav class="navbar navbar-inverse" role="navigation">
+	  <!-- Brand and toggle get grouped for better mobile display -->
+	  <div class="navbar-header">
+	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	      <span class="sr-only">Toggle navigation</span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	    </button>
+	    <a class="navbar-brand" href="#">Graylog2 Stream Dashboard</a>
+	  </div>
+
+	  <!-- Collect the nav links, forms, and other content for toggling -->
+	  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	    <ul class="nav navbar-nav">
+	      <li class="dropdown" ng-controller="StreamsCtrl">
+	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Select Stream <b class="caret"></b></a>
+	        <ul class="dropdown-menu">
+				<li ng-repeat="stream in streams">
+					<a href="#/messages/{{stream.id}}">{{stream.title}}</a>
+				</li>
+	        </ul>
+	      </li>
+	    </ul>
+	    <ul class="nav navbar-nav navbar-right">
+	      <li><a href="#">Settings</a></li>
+	    </ul>
+	  </div><!-- /.navbar-collapse -->
+	</nav>
+	
     <!-- Add your site or application content here -->
     <div class="container" ng-view=""></div>
+
+	<div class="footer">
+	  <p>♥ from the TORCH team</p>
+	</div>
 
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>

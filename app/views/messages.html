@@ -1,18 +1,7 @@
-<div class="header">
-  <ul class="nav nav-pills pull-right">
-    <li class="active"><a ng-href="#">Home</a></li>
-    <li><a ng-href="#">About</a></li>
-    <li><a ng-href="#">Contact</a></li>
-  </ul>
-  <h3 class="text-muted"><a href="/">Graylog2 Stream Dashboards</a></h3>
-</div>
+<h4>Messages in "{{stream.title}}"</h4>
 
 <ul>
 	<li ng-repeat="message in messages">
 		{{message.message}}
 	</li>
 </ul>
-
-<div class="footer">
-  <p>♥ from the TORCH team</p>
-</div>
