@@ -6,14 +6,15 @@ angular.module('graylog2StreamdashApp', [
   'ngSanitize',
   'ngRoute',
   'base64',
-  'settingsServices',
+  'settingsProvider',
   'streamsServices',
   'streamAlertsServices',
   'messagesServices'
 ])
-  .config(function ($httpProvider) {
+  .config(function ($httpProvider, settingsProvider) {
+  var Settings = settingsProvider.$get();
 	$httpProvider.defaults.withCredentials = true;
-	$httpProvider.defaults.headers.common.Authorization = 'Basic YWRtaW46Zm9vYmFy';
+	$httpProvider.defaults.headers.common.Authorization = Settings.authToken();
 })
   .config(function ($routeProvider) {
     $routeProvider
