@@ -41,4 +41,13 @@ angular.module('graylog2StreamdashApp', [
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .run(function($rootScope, $location, settings) {
+    //var Settings = settingsProvider.$get();
+    $rootScope.$on('$routeChangeStart', function(event, next, current) {
+      if (settings.areComplete() || next == "settings" )
+        return;
+
+      $location.path("settings");
+    });
   });

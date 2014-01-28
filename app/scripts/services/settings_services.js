@@ -12,9 +12,17 @@ settingsProvider.provider('settings', ['$base64', function($base64) {
 				return "Basic " + $base64.encode(this.username + ':' + this.password);
 			},
 			set: function(newSettings) {
-				localStorage.username = newSettings.username;
-				localStorage.password = newSettings.password;
-				localStorage.serverUrl = newSettings.serverUrl;
+				if (newSettings.username)
+					localStorage.username = newSettings.username;
+				if (newSettings.password)
+					localStorage.password = newSettings.password;
+				if (newSettings.serverUrl)
+					localStorage.serverUrl = newSettings.serverUrl;
+			},
+			areComplete: function() {
+				return (this.username
+					&& this.password
+					&& this.serverUrl);
 			}
 		};
 		return settings;

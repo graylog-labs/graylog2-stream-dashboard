@@ -74,3 +74,8 @@ body {
     border-bottom: 0;
   }
 }
+
+.settingsform {
+  width: 500px;
+  position: center;
+}
