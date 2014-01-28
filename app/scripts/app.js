@@ -15,6 +15,14 @@ angular.module('graylog2StreamdashApp', [
   var Settings = settingsProvider.$get();
 	$httpProvider.defaults.withCredentials = true;
 	$httpProvider.defaults.headers.common.Authorization = Settings.authToken();
+  $httpProvider.interceptors.push(function($q) {
+    return {
+      'request': function(config) {
+        config.url = config.url.replace('$serverUrl', Settings.serverUrl);
+        return config || $q.when(config);
+      }
+    }
+  });
 })
   .config(function ($routeProvider) {
     $routeProvider
