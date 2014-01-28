@@ -23,6 +23,18 @@ angular.module('graylog2StreamdashApp', [
       }
     }
   });
+  $httpProvider.interceptors.push(function($q, $rootScope) {
+    return {
+      'responseError': function(rejection) {
+        var alert = {type: 'danger',
+          message: 'Unable to connect to graylog2 server! Please check your connection <a href="#/settings">settings.'};
+
+        $rootScope.alerts = [alert];
+        console.log($rootScope);
+        return rejection;
+      }
+    }
+  })
 })
   .config(function ($routeProvider) {
     $routeProvider

@@ -55,6 +55,10 @@
 	</nav>
 	
     <!-- Add your site or application content here -->
+    <div class="container alerts">
+        <div ng-repeat="alert in alerts" class="alert alert-{{alert.type}}" ng-bind-html="alert.message">
+        </div>
+    </div>
     <div class="container"ng-view=""></div>
 
 	<div id="footer" class="footer">
