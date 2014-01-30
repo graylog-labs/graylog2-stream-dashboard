@@ -1,6 +1,6 @@
 /* Space out content a bit */
 body {
-  background-image: url('/images/start.jpg');
+  background-image: url('../images/start.jpg');
   background-repeat: no-repeat;
   background-position: top;
   background-attachment: fixed;
