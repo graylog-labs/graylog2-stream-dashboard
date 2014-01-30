@@ -22,7 +22,7 @@ angular.module('graylog2StreamdashApp', [
         config.url = config.url.replace('$serverUrl', Settings.serverUrl);
         return config || $q.when(config);
       }
-    }
+    };
   });
   $httpProvider.interceptors.push(function($q, $rootScope) {
     return {
@@ -37,8 +37,8 @@ angular.module('graylog2StreamdashApp', [
         $rootScope.alerts = [alert];
         return rejection;
       }
-    }
-  })
+    };
+  });
 })
   .config(function ($routeProvider) {
     $routeProvider
@@ -60,10 +60,11 @@ angular.module('graylog2StreamdashApp', [
   })
   .run(function($rootScope, $location, settings) {
     //var Settings = settingsProvider.$get();
-    $rootScope.$on('$routeChangeStart', function(event, next, current) {
-      if (settings.areComplete() || next == "settings" )
+    $rootScope.$on('$routeChangeStart', function(event, next) {
+      if (settings.areComplete() || next === 'settings' ) {
         return;
+      }
 
-      $location.path("settings");
+      $location.path('settings');
     });
   });

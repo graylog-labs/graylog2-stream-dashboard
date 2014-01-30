@@ -9,22 +9,23 @@ settingsProvider.provider('settings', ['$base64', function($base64) {
 			password: localStorage.password,
 			serverUrl: localStorage.serverUrl,
 			authToken: function() {
-				return "Basic " + $base64.encode(this.username + ':' + this.password);
+				return 'Basic ' + $base64.encode(this.username + ':' + this.password);
 			},
 			set: function(newSettings) {
-				if (newSettings.username)
+				if (newSettings.username) {
 					localStorage.username = newSettings.username;
-				if (newSettings.password)
+				}
+				if (newSettings.password) {
 					localStorage.password = newSettings.password;
-				if (newSettings.serverUrl)
+				}
+				if (newSettings.serverUrl) {
 					localStorage.serverUrl = newSettings.serverUrl;
+				}
 			},
 			areComplete: function() {
-				return (this.username
-					&& this.password
-					&& this.serverUrl);
+				return (this.username && this.password && this.serverUrl);
 			}
 		};
 		return settings;
-	}
+	};
 }]);

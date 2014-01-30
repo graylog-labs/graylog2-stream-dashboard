@@ -2,7 +2,7 @@
 
 angular.module('graylog2StreamdashApp')
   .controller('MessagesCtrl', ['$scope', '$routeParams', 'Message', 'Stream', 'StreamAlert', function ($scope, $routeParams, Message, Stream, StreamAlert) {
-  	$scope.update = function() {
+	$scope.update = function() {
 		Stream.get({id: $routeParams.id}, function(response) {
 			$scope.stream = response;
 		});
@@ -17,12 +17,13 @@ angular.module('graylog2StreamdashApp')
 			$scope.streamAlerts = response.alerts;
 			$scope.totalStreamAlerts = response.total;
 		});
-  	};
+	};
 
 	if (!$scope.updaterThread) {
 		$scope.updaterThread = setInterval(function() {
-			if ($routeParams.id == undefined)
+			if ($routeParams.id === undefined) {
 				return;
+			}
 			$scope.update();
 		}, 2000);
 	}
