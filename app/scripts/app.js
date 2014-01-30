@@ -6,6 +6,7 @@ angular.module('graylog2StreamdashApp', [
   'ngSanitize',
   'ngRoute',
   'base64',
+  'angularMoment',
   'settingsProvider',
   'streamsServices',
   'streamAlertsServices',
@@ -25,12 +26,15 @@ angular.module('graylog2StreamdashApp', [
   });
   $httpProvider.interceptors.push(function($q, $rootScope) {
     return {
+      'response': function(response) {
+        $rootScope.alerts = [];
+        return response;
+      },
       'responseError': function(rejection) {
         var alert = {type: 'danger',
           message: 'Unable to connect to graylog2 server! Please check your connection <a href="#/settings">settings.'};
 
         $rootScope.alerts = [alert];
-        console.log($rootScope);
         return rejection;
       }
     }

@@ -1,0 +1,75 @@
+body {
+	background-color: #e3e3e3;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+	overflow-x: hidden;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+	padding: 0;
+	margin: 0;
+}
+
+h1 {
+	font-size: 26px;
+	line-height: 28px;
+    margin-bottom: 3px;
+}
+
+h2 {
+	font-size: 18px;
+	line-height: 26px;
+}
+
+h3 {
+	font-size: 15px;
+	line-height: 26px;
+}
+
+h4 {
+    font-size: 13px;
+    line-height: 20px;
+}
+
+#toplogo {
+	margin-top: 7px;
+	float: left;
+}
+
+#main-content, #sidebar-inner, #universalsearch {
+	padding: 15px;
+	background-color: #fff;
+    border: 1px solid #D1D1D1;
+}
+
+.messages {
+	font-size: 11px;
+	margin-top: 15px;
+	table-layout: fixed;
+	border-collapse: collapse;
+	width: 100%;
+    word-break: break-all;
+}
+
+.messages-message {
+	word-wrap:break-word;
+}
+
+.messages th {
+	font-size: 13px;
+}
+
+.messages tbody > tr {
+	cursor: pointer;
+}
+
+
+.message-highlighted {
+	color: #26ADE4;
+}

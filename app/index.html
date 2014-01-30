@@ -27,22 +27,22 @@
 	<nav class="navbar navbar-inverse" role="navigation">
 	  <!-- Brand and toggle get grouped for better mobile display -->
 	  <div class="navbar-header">
-	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
 	      <span class="sr-only">Toggle navigation</span>
 	      <span class="icon-bar"></span>
 	      <span class="icon-bar"></span>
 	      <span class="icon-bar"></span>
 	    </button>
-	    <a class="navbar-brand" href="#">Graylog2 Stream Dashboard</a>
+	    <a class="navbar-brand" href="#"><img src="images/toplogo.png" id="toplogo" /></a>
 	  </div>
 
 	  <!-- Collect the nav links, forms, and other content for toggling -->
-	  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	  <div class="collapse navbar-collapse" id="navbar-collapse-1">
 	    <ul class="nav navbar-nav">
 	      <li class="dropdown" ng-controller="StreamsCtrl">
 	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Select Stream <b class="caret"></b></a>
 	        <ul class="dropdown-menu">
-				<li ng-repeat="stream in streams|orderBy:title">
+				<li ng-repeat="stream in streams|orderBy:'title'">
 					<a href="#/messages/{{stream.id}}">{{stream.title}}</a>
 				</li>
 	        </ul>
@@ -59,7 +59,7 @@
         <div ng-repeat="alert in alerts" class="alert alert-{{alert.type}}" ng-bind-html="alert.message">
         </div>
     </div>
-    <div class="container"ng-view=""></div>
+    <div class="container" id="main-content" ng-view=""></div>
 
 	<div id="footer" class="footer">
 				<p>♥ from the TORCH team</p>
@@ -81,6 +81,10 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-base64/angular-base64.js"></script>
     <script src="bower_components/angular-base64/angular-base64.min.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular-moment/angular-moment.js"></script>
+    <script src="components/moment/moment.js"></script>
+    <script src="components/angular-moment/angular-moment.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

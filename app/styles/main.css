@@ -1,5 +1,15 @@
 /* Space out content a bit */
 body {
+  background: url('/images/start.jpg') no-repeat center center fixed;
+}
+
+.container {
+  background: #ffffff;
+  font-size: 11px;
+  width: 80%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  -webkit-box-shadow: rgb(0, 0, 0) 0px 0px 40px 0px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
