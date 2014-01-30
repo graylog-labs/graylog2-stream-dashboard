@@ -16,6 +16,7 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="styles/offcanvas.css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
@@ -24,46 +25,46 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-	<nav class="navbar navbar-inverse" role="navigation">
-	  <!-- Brand and toggle get grouped for better mobile display -->
-	  <div class="navbar-header">
-	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-	      <span class="sr-only">Toggle navigation</span>
-	      <span class="icon-bar"></span>
-	      <span class="icon-bar"></span>
-	      <span class="icon-bar"></span>
-	    </button>
-	    <a class="navbar-brand" href="#"><img src="images/toplogo.png" id="toplogo" /></a>
-	  </div>
+    <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="/images/toplogo.png"/></a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li class="dropdown" ng-controller="StreamsCtrl">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Select Stream <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li ng-repeat="stream in streams|orderBy:'title'">
+                        <a href="#/messages/{{stream.id}}">{{stream.title}}</a>
+                    </li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/settings">Settings</a></li>
+            </ul>
+        </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </div><!-- /.navbar -->
 
-	  <!-- Collect the nav links, forms, and other content for toggling -->
-	  <div class="collapse navbar-collapse" id="navbar-collapse-1">
-	    <ul class="nav navbar-nav">
-	      <li class="dropdown" ng-controller="StreamsCtrl">
-	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Select Stream <b class="caret"></b></a>
-	        <ul class="dropdown-menu">
-				<li ng-repeat="stream in streams|orderBy:'title'">
-					<a href="#/messages/{{stream.id}}">{{stream.title}}</a>
-				</li>
-	        </ul>
-	      </li>
-	    </ul>
-	    <ul class="nav navbar-nav navbar-right">
-	      <li><a href="#/settings">Settings</a></li>
-	    </ul>
-	  </div><!-- /.navbar-collapse -->
-	</nav>
-	
     <!-- Add your site or application content here -->
     <div class="container alerts">
         <div ng-repeat="alert in alerts" class="alert alert-{{alert.type}}" ng-bind-html="alert.message">
         </div>
     </div>
+
     <div class="container" id="main-content" ng-view=""></div>
 
-	<div id="footer" class="footer">
-				<p>♥ from the TORCH team</p>
-	</div>
+    <footer>
+        <p class="text-muted credit">♥ from the <a href="http://torch.sh">TORCH</a> team</p>
+    </footer>
 
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -83,8 +84,6 @@
     <script src="bower_components/angular-base64/angular-base64.min.js"></script>
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/angular-moment/angular-moment.js"></script>
-    <script src="components/moment/moment.js"></script>
-    <script src="components/angular-moment/angular-moment.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

@@ -1,24 +1,33 @@
-<h4>
-	Messages in "{{stream.title}}"
-	<small>This stream has {{streamAlerts.length}} currently active alerts</small>
-</h4>
+<div class="row row-offcanvas row-offcanvas-right">
+	<div class="boxed col-xs-12 col-sm-12">
+		<p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+		</p>
+		<h4>
+			Messages in "{{stream.title}}"
+			<small>This stream has {{streamAlerts.length}} currently active alerts</small>
+		</h4>
 
-<div ng-repeat="streamAlert in streamAlerts|orderBy:triggered_at|limitTo:1" class="alert alert-danger">
-	{{streamAlert.description}}
-	
-	<p />
-	[Triggered <span am-time-ago="streamAlert.triggered_at"></span>]
+		<div ng-repeat="streamAlert in streamAlerts|orderBy:triggered_at|limitTo:1" class="alert alert-danger">
+			{{streamAlert.description}}
+			
+			<p />
+			[Triggered <span am-time-ago="streamAlert.triggered_at"></span>]
+		</div>
+
+		<div class="messagelist">
+			<table class="table table-striped">
+				<tr>
+					<th>Timestamp</th>
+					<th>Message</th>
+					<th ng-repeat="field in fields">{{field}}</th>
+				</tr>
+				<tr ng-repeat="message in messages">
+					<td>{{message.timestamp}}</td>
+					<td>{{message.message}}</td>
+					<td ng-repeat="field in fields">{{message[field]}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
 </div>
-
-<table class="table table-striped">
-	<tr>
-		<th>Timestamp</th>
-		<th>Message</th>
-		<th ng-repeat="field in fields">{{field}}</th>
-	</tr>
-	<tr ng-repeat="message in messages">
-		<td>{{message.timestamp}}</td>
-		<td>{{message.message}}</td>
-		<td ng-repeat="field in fields">{{message[field]}}</td>
-	</tr>
-</table>
