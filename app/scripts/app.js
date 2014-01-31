@@ -59,7 +59,32 @@ angular.module('graylog2StreamdashApp', [
         redirectTo: '/'
       });
   })
-  .run(function($rootScope, $location, settings) {
+  .run(function($rootScope, $location, $window, settings) {
+
+    var t, l = (new Date()).getTime();
+
+    $window.onscroll = function(){
+      var now = (new Date()).getTime();
+      
+      if(now - l > 400){
+        $rootScope.scroll = true;
+        l = now;
+      }
+      
+      clearTimeout(t);
+      t = setTimeout(function(){
+        $rootScope.scroll = false;
+      }, 300);
+    };
+
+    $window.onfocus = function() {
+      $rootScope.focus = true;
+    };
+
+    $window.onblur = function() {
+      $rootScope.focus = false;
+    };
+
     //var Settings = settingsProvider.$get();
     $rootScope.$on('$routeChangeStart', function(event, next) {
       if (settings.areComplete() || next === 'settings' ) {

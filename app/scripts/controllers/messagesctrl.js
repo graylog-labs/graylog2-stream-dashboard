@@ -7,7 +7,7 @@ angular.module('graylog2StreamdashApp')
 			$scope.stream = response;
 		});
 		
-		Message.get({ streamId: $routeParams.id}, function(response) {
+		Message.get({ streamId: $routeParams.id, limit: 30}, function(response) {
 			$scope.messages = response.messages.map(function(x) { return x.message; });
 			var fields = response.fields;
 			fields.shift('message');
@@ -25,7 +25,7 @@ angular.module('graylog2StreamdashApp')
 
 	if (!$scope.updaterThread) {
 		$scope.updaterThread = setInterval(function() {
-			if ($routeParams.id === undefined) {
+			if (!$scope.focus || $scope.scroll || $routeParams.id === undefined) {
 				return;
 			}
 			$scope.update();

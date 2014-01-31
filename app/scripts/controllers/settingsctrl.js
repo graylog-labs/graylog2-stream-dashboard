@@ -6,6 +6,6 @@ angular.module('graylog2StreamdashApp')
 		Settings.set($scope.settings);
 		$window.location.href = '#/';
 		$window.location.reload();
-	},
+	};
 	$scope.settings = Settings;
 }]);
