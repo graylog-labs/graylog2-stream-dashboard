@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('graylog2StreamdashApp')
-  .controller('MessagesCtrl', ['$scope', '$routeParams', 'Message', 'Stream', 'StreamAlert', function ($scope, $routeParams, Message, Stream, StreamAlert) {
+  .controller('MessagesCtrl', ['$scope', '$routeParams', 'Message', 'Stream', 'StreamAlert', 'StreamThroughput', function ($scope, $routeParams, Message, Stream, StreamAlert, StreamThroughput) {
 	$scope.update = function() {
 		Stream.get({id: $routeParams.id}, function(response) {
 			$scope.stream = response;
@@ -16,6 +16,10 @@ angular.module('graylog2StreamdashApp')
 		StreamAlert.query({id: $routeParams.id}, function(response) {
 			$scope.streamAlerts = response.alerts;
 			$scope.totalStreamAlerts = response.total;
+		});
+
+		StreamThroughput.query({id: $routeParams.id}, function(response) {
+			$scope.streamThroughput = response.throughput;
 		});
 	};
 

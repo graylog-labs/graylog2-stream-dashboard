@@ -10,6 +10,7 @@ angular.module('graylog2StreamdashApp', [
   'settingsProvider',
   'streamsServices',
   'streamAlertsServices',
+  'streamThroughputServices',
   'messagesServices'
 ])
   .config(function ($httpProvider, settingsProvider) {

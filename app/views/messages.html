@@ -5,7 +5,7 @@
 		</p>
 		<h4>
 			Messages in "{{stream.title}}"
-			<small>This stream has {{streamAlerts.length}} currently active alerts</small>
+			<small>This stream is processing {{streamThroughput}} messages/s and has seen {{streamAlerts.length}} alerts.</small>
 		</h4>
 
 		<div ng-repeat="streamAlert in streamAlerts|orderBy:triggered_at|limitTo:1" class="alert alert-danger">
