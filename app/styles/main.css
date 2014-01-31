@@ -15,7 +15,7 @@ body {
 
 .boxed {
   background: #ffffff;
-  -webkit-box-shadow: rgb(0, 0, 0) 0px 0px 40px 0px;
+  box-shadow: rgb(0, 0, 0) 0px 0px 40px 0px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
