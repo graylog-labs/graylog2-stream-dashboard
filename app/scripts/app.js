@@ -7,6 +7,7 @@ angular.module('graylog2StreamdashApp', [
   'ngRoute',
   'base64',
   'angularMoment',
+  'infinite-scroll',
   'settingsProvider',
   'streamsServices',
   'streamAlertsServices',

@@ -7,7 +7,7 @@ angular.module('graylog2StreamdashApp')
 			$scope.stream = response;
 		});
 		
-		Message.get({ streamId: $routeParams.id, limit: 30}, function(response) {
+		Message.get({ streamId: $routeParams.id, limit: 100}, function(response) {
 			$scope.messages = response.messages.map(function(x) { return x.message; });
 			var fields = response.fields;
 			fields.shift('message');
@@ -30,6 +30,12 @@ angular.module('graylog2StreamdashApp')
 			}
 			$scope.update();
 		}, 2000);
+	}
+
+	$scope.limit = 15;
+
+	$scope.increaseLimit = function() {
+		$scope.limit += 3;
 	}
 
 	$scope.update();

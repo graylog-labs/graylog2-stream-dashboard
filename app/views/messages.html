@@ -15,14 +15,14 @@
 			[Triggered <span am-time-ago="streamAlert.triggered_at"></span>]
 		</div>
 
-		<div class="messagelist">
+		<div class="messagelist" infinite-scroll="increaseLimit()" infinite-scroll-distance="3">
 			<table class="table table-striped">
 				<tr>
 					<th>Timestamp</th>
 					<th>Message</th>
 					<th ng-repeat="field in fields">{{field}}</th>
 				</tr>
-				<tr ng-repeat="message in messages">
+				<tr ng-repeat="message in messages|limitTo:limit">
 					<td>{{message.timestamp}}</td>
 					<td>{{message.message}}</td>
 					<td ng-repeat="field in fields">{{message[field]}}</td>
