@@ -32,7 +32,7 @@ angular.module('graylog2StreamdashApp')
 
 	if (!$scope.updaterThread) {
 		$scope.updaterThread = setInterval(function() {
-			if (($scope.focus != undefined && !$scope.focus) || $scope.scroll || $routeParams.id === undefined) {
+			if (($scope.focus != undefined && !$scope.focus) || $routeParams.id === undefined) {
 				return;
 			}
 
