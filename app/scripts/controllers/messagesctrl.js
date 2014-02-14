@@ -8,11 +8,18 @@ angular.module('graylog2StreamdashApp')
 		});
 		
 		Message.get({ streamId: $routeParams.id, limit: 100}, function(response) {
-			$scope.messages = response.messages.map(function(x) { return x.message; });
+			$scope.messages = response.messages.map(function(x) {
+				var msg = x.message;
+				msg.timestamp = moment(new Date(msg.timestamp)).format();
+				return msg;
+			});
+
 			var fields = response.fields;
 			fields.shift('message');
+
 			$scope.fields = fields.sort();
 		});
+
 		StreamAlert.query({id: $routeParams.id}, function(response) {
 			$scope.streamAlerts = response.alerts;
 			$scope.totalStreamAlerts = response.total;
@@ -26,6 +33,7 @@ angular.module('graylog2StreamdashApp')
 	if (!$scope.updaterThread) {
 		$scope.updaterThread = setInterval(function() {
 			if (!$scope.focus || $scope.scroll || $routeParams.id === undefined) {
+
 				return;
 			}
 			$scope.update();
