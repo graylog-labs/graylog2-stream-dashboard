@@ -31,12 +31,12 @@ angular.module('graylog2StreamdashApp')
 			$scope.update();
 		}, 2000);
 	}
-
-	$scope.limit = 15;
+	
+	$scope.limit = 40;
 
 	$scope.increaseLimit = function() {
 		$scope.limit += 3;
-	}
+	};
 
 	$scope.update();
 }]);
