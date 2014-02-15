@@ -1,11 +1,10 @@
 /* Space out content a bit */
 body {
-  background-image: url('../images/start.jpg');
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-attachment: fixed;
-  background-size: 100%;
-
+  background: url('../images/start.jpg') no-repeat center center fixed;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   font-size: 12px;
 }
 
