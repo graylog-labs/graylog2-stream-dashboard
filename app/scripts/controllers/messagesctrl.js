@@ -36,7 +36,8 @@ angular.module('graylog2StreamdashApp')
 
 	if (!$scope.updaterThread) {
 		$scope.updaterThread = setInterval(function() {
-			if (($scope.focus != undefined && !$scope.focus) || $routeParams.id === undefined) {
+			// $scope.scroll means scrolling *in progress* and is for smoother scrolling in some browsers.
+			if (($scope.focus != undefined && !$scope.focus) || $scope.scroll || $routeParams.id === undefined) {
 				return;
 			}
 
