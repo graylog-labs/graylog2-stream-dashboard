@@ -31,3 +31,7 @@ body {
   margin-left: 40px;
   margin-right: 40px;
 }
+
+.messages-container {
+  padding-top: 0px;
+}

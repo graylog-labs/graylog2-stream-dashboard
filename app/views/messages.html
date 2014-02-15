@@ -1,12 +1,12 @@
 <div class="row row-offcanvas row-offcanvas-right">
-	<div class="boxed col-xs-12 col-sm-12">
+	<div class="boxed col-xs-12 col-sm-12 messages-container">
 		<p class="pull-right visible-xs">
             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
 		</p>
-		<h4>
-			Messages in "{{stream.title}}"
+		<h3>
+			&raquo;{{stream.title}}&laquo;
 			<small>This stream is processing {{streamThroughput}} messages per second.</small>
-		</h4>
+		</h3>
 
 		<div ng-repeat="streamAlert in streamAlerts|orderBy:triggered_at|limitTo:1" class="alert alert-danger">
 			{{streamAlert.description}}
