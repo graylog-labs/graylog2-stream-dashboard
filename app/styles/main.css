@@ -26,3 +26,8 @@ body {
 .streams-selector {
   margin-top: 3px;
 }
+
+#main-content {
+  margin-left: 40px;
+  margin-right: 40px;
+}
