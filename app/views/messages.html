@@ -18,16 +18,14 @@
 		<div class="messagelist" infinite-scroll="increaseLimit()" infinite-scroll-distance="3">
 			<table class="table table-striped">
 				<tr>
-					<th>Timestamp</th>
-					<th>Source</th>
+					<th style="width: 160px;">Timestamp</th>
+					<th style="width: 210px;">Source</th>
 					<th>Message</th>
-					<th ng-repeat="field in fields">{{field}}</th>
 				</tr>
 				<tr ng-repeat="message in messages|limitTo:limit">
 					<td>{{message.timestamp}}</td>
 					<td>{{message.source}}</td>
 					<td>{{message.message}}</td>
-					<td ng-repeat="field in fields">{{message[field]}}</td>
 				</tr>
 			</table>
 		</div>

@@ -10,7 +10,7 @@ angular.module('graylog2StreamdashApp')
 		Message.get({ streamId: $routeParams.id, limit: 100}, function(response) {
 			$scope.messages = response.messages.map(function(x) {
 				var msg = x.message;
-				msg.timestamp = moment(new Date(msg.timestamp)).format();
+				msg.timestamp = moment(new Date(msg.timestamp)).format("YYYY-MM-DD HH:mm:ss.SSS");
 				return msg;
 			});
 

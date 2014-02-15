@@ -23,6 +23,15 @@ body {
 	overflow: auto;
 }
 
+.messagelist table {
+  font-size: 12px;
+  margin-top: 10px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 100%;
+  word-break: break-all;
+}
+
 .navbar ul {
   margin-top: 3px;
 }
