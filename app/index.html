@@ -41,6 +41,7 @@
               <li class="dropdown" ng-controller="StreamsCtrl">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Select Stream <b class="caret"></b></a>
                 <ul class="dropdown-menu">
+                    <li ng-hide="streams.length"><a href="#">No permitted streams found</a></li>
                     <li ng-repeat="stream in streams|orderBy:'title'">
                         <a href="#/messages/{{stream.id}}">{{stream.title}}</a>
                     </li>
