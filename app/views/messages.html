@@ -19,11 +19,13 @@
 			<table class="table table-striped">
 				<tr>
 					<th>Timestamp</th>
+					<th>Source</th>
 					<th>Message</th>
 					<th ng-repeat="field in fields">{{field}}</th>
 				</tr>
 				<tr ng-repeat="message in messages|limitTo:limit">
 					<td>{{message.timestamp}}</td>
+					<td>{{message.source}}</td>
 					<td>{{message.message}}</td>
 					<td ng-repeat="field in fields">{{message[field]}}</td>
 				</tr>

@@ -15,7 +15,11 @@ angular.module('graylog2StreamdashApp')
 			});
 
 			var fields = response.fields;
-			fields.shift('message');
+
+			// Remove some fields that we handle specifically.
+			$.each(["timestamp", "message", "source"], function(i, field) {
+				fields.splice(fields.indexOf(field), 1);	
+			});
 
 			$scope.fields = fields.sort();
 		});
