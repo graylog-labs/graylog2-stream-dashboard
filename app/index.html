@@ -9,7 +9,6 @@
     <title>Graylog2 Stream Dashboard</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
@@ -55,7 +54,6 @@
       </div><!-- /.container -->
     </div><!-- /.navbar -->
 
-    <!-- Add your site or application content here -->
     <div class="container alerts">
         <div ng-repeat="alert in alerts" class="alert alert-{{alert.type}}" ng-bind-html="alert.message">
         </div>
