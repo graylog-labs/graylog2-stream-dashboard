@@ -3,7 +3,13 @@
   </div>
   <div class="boxed col col-md-6 col-offset-3">
     <div class="settingsform">
-      <h4>Settings</h4>
+      <h3>Settings</h3>
+
+      <p>
+        Remember that the browser is connecting to the graylog2-server instance directly and needs
+        access to it. You also need to enable CORS in your graylog2-server.conf.
+      </p>
+
       <form role="form" ng-submit="update()">
         <div class="form-group">
           <label for="serverUrl">Server URL</label>
