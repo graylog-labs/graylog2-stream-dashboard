@@ -36,7 +36,12 @@ body {
   margin-top: 3px;
 }
 
-#main-content {
+#main-content, #navwrap  {
   margin-left: 40px;
   margin-right: 40px;
+}
+
+.stream-alert {
+  margin-top: 20px;
+  font-size: 15px;
 }

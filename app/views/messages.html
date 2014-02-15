@@ -8,11 +8,9 @@
 			<small>This stream is processing {{streamThroughput}} messages per second.</small>
 		</h3>
 
-		<div ng-repeat="streamAlert in streamAlerts|orderBy:triggered_at|limitTo:1" class="alert alert-danger">
-			{{streamAlert.description}}
-			
-			<p />
-			[Triggered <span am-time-ago="streamAlert.triggered_at"></span>]
+		<div ng-repeat="streamAlert in streamAlerts|orderBy:triggered_at|limitTo:1" class="alert alert-danger stream-alert">
+
+			<span class="glyphicon glyphicon-fire"></span> <strong>Alert:</strong> {{streamAlert}}
 		</div>
 
 		<div class="messagelist" infinite-scroll="increaseLimit()" infinite-scroll-distance="3">

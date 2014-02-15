@@ -25,8 +25,15 @@ angular.module('graylog2StreamdashApp')
 		});
 
 		StreamAlert.query({id: $routeParams.id}, function(response) {
-			$scope.streamAlerts = response.alerts;
-			$scope.totalStreamAlerts = response.total;
+			$scope.streamAlerts = [];
+
+			$.each(response.results, function(i, alert) {
+				if (alert.triggered) {
+					$scope.streamAlerts.push(alert.alert_description);
+				}
+			});
+
+			$scope.totalStreamAlerts = response.total_triggered;
 		});
 
 		StreamThroughput.query({id: $routeParams.id}, function(response) {
