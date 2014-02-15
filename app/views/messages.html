@@ -8,7 +8,7 @@
 			<small>This stream is processing {{streamThroughput}} messages per second.</small>
 		</h3>
 
-		<div ng-repeat="streamAlert in streamAlerts|orderBy:triggered_at|limitTo:1" class="alert alert-danger stream-alert">
+		<div ng-repeat="streamAlert in streamAlerts|orderBy:triggered_at" class="alert alert-danger stream-alert">
 
 			<span class="glyphicon glyphicon-fire"></span> <strong>Alert:</strong> {{streamAlert}}
 		</div>
