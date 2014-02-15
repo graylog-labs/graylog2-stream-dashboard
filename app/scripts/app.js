@@ -30,6 +30,7 @@ angular.module('graylog2StreamdashApp', [
     return {
       'response': function(response) {
         $rootScope.alerts = [];
+        $rootScope.noConnection = false;
         return response;
       },
       'responseError': function(rejection) {
@@ -37,6 +38,7 @@ angular.module('graylog2StreamdashApp', [
           message: 'Unable to connect to graylog2 server! Please check your connection <a href="#/settings">settings.'};
 
         $rootScope.alerts = [alert];
+        $rootScope.noConnection = true;
         return rejection;
       }
     };
