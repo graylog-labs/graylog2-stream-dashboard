@@ -23,3 +23,7 @@ body {
 .messagelist {
 	overflow: auto;
 }
+
+.streams-selector {
+  margin-top: 3px;
+}
