@@ -4,4 +4,7 @@ dist
 .sass-cache
 app/bower_components
 
+release/builds
+release/logs
+
 .DS_Store
