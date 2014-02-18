@@ -5,7 +5,15 @@ This is a small javascript web app that is showing you continuously updated dash
 Getting started for users
 -------------------------
 
-TBA
+* Download the latest package from the [releases page](https://github.com/Graylog2/graylog2-stream-dashboard/releases).
+* Open `app/index.html` in your browser and follow the configuration wizard to connect the stream dashboard to a `graylog2-server` node.
+
+### Important (Read this!)
+
+* Everything is running in your browser and your browser does AJAX calls against `graylog2-server`. This means that the browser needs direct access to the `graylog2-server` REST APIs. (Usually port 12900)
+* Google Chrome does not allow those REST connections from webpages that were opened as files from disk. Serve the `app` folder from a simple HTTP server or use another browser. Another way for Google Chrome is to start it with `--disable-web-security`, but we obviously do not recommend that.
+* You have to enable CORS support in `graylog2-server`. Put this in your `graylog2-server.conf`: `rest_enable_cors=true` ([Learn more about CORS](http://enable-cors.org/))
+* This is only compatible from Graylog2 v0.20.0-rc.3 on.
 
 Getting started for developers
 ------------------------------
