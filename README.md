@@ -2,8 +2,13 @@
 
 This is a small javascript web app that is showing you continuously updated dashboards for your Streams. It shows you the messages as they come in , as well as the most recent alarm that has been triggered for this stream.
 
-Getting Started
----------------
+Getting started for users
+-------------------------
+
+TBA
+
+Getting started for developers
+------------------------------
 
 * Install [grunt](http://gruntjs.com) and [bower](http://bower.io)
 * Run `grunt bower-install`
