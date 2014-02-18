@@ -1,6 +1,9 @@
 # Graylog2 Stream Dashboard
 
-This is a small javascript web app that is showing you continuously updated dashboards for your Streams. It shows you the messages as they come in , as well as the most recent alarm that has been triggered for this stream.
+This is a small javascript web app that is showing you continuously updated dashboards for your Streams. It shows you the messages as they come in , as well as the most recent alarms that has been triggered for this stream.
+
+![](screenshot1.png)
+![](screenshot2.png)
 
 Getting started for users
 -------------------------
