@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('graylog2StreamdashApp')
-  .controller('MessagesCtrl', ['$scope', '$routeParams', 'Message', 'Stream', 'StreamAlert', 'StreamThroughput', function ($scope, $routeParams, Message, Stream, StreamAlert, StreamThroughput) {
+  .controller('MessagesCtrl', ['$scope', '$routeParams', 'Message', 'Stream', 'StreamAlert', 'StreamThroughput', 'settings', function ($scope, $routeParams, Message, Stream, StreamAlert, StreamThroughput, Settings) {
 	$scope.update = function() {
 		Stream.get({id: $routeParams.id}, function(response) {
 			$scope.stream = response;
@@ -49,7 +49,7 @@ angular.module('graylog2StreamdashApp')
 			}
 
 			$scope.update();
-		}, 5000);
+		}, Settings.refreshInterval);
 	}
 	
 	$scope.limit = 40;
