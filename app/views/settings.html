@@ -13,15 +13,13 @@
       <form role="form" ng-submit="update()">
         <div class="form-group">
           <label for="serverUrl">Server URL</label>
-          <input type="url" ng-model="settings.serverUrl" required class="form-control" id="serverUrl" placeholder="Enter URL to Graylog2 server">
-        </div>
-        <div class="form-group">
+          <input type="url" ng-model="settings.serverUrl" required class="form-control" id="serverUrl" placeholder="Enter URL to Graylog2 server"/>
           <label for="username">Username</label>
-          <input type="text" ng-model="settings.username" required class="form-control" id="username" placeholder="Enter Username">
-        </div>
-        <div class="form-group">
+          <input type="text" ng-model="settings.username" required class="form-control" id="username" placeholder="Enter Username"/>
           <label for="password">Password</label>
-          <input type="password" ng-model="settings.password" required class="form-control" id="password" placeholder="Password">
+          <input type="password" ng-model="settings.password" required class="form-control" id="password" placeholder="Password"/>
+
+          <input type="checkbox" ng-model="settings.disableRefresh" id="disableRefresh"/> Disable refresh when window out of focus?
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>

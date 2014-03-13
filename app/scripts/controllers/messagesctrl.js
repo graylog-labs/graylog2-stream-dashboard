@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('graylog2StreamdashApp')
-  .controller('MessagesCtrl', ['$scope', '$routeParams', 'Message', 'Stream', 'StreamAlert', 'StreamThroughput', function ($scope, $routeParams, Message, Stream, StreamAlert, StreamThroughput) {
+  .controller('MessagesCtrl', ['$scope', '$routeParams', 'Message', 'Stream', 'StreamAlert', 'StreamThroughput', 'settings', function ($scope, $routeParams, Message, Stream, StreamAlert, StreamThroughput, Settings) {
 	$scope.update = function() {
 		Stream.get({id: $routeParams.id}, function(response) {
 			$scope.stream = response;
@@ -44,7 +44,7 @@ angular.module('graylog2StreamdashApp')
 	if (!$scope.updaterThread) {
 		$scope.updaterThread = setInterval(function() {
 			// $scope.scroll means scrolling *in progress* and is for smoother scrolling in some browsers.
-			if (($scope.focus != undefined && !$scope.focus) || $scope.scroll || $routeParams.id === undefined) {
+			if ((Settings.disableRefresh && $scope.focus != undefined && !$scope.focus) || $scope.scroll || $routeParams.id === undefined) {
 				return;
 			}
 

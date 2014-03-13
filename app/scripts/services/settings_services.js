@@ -8,6 +8,7 @@ settingsProvider.provider('settings', ['$base64', function($base64) {
 			username: localStorage.username,
 			password: localStorage.password,
 			serverUrl: localStorage.serverUrl,
+			disableRefresh: (localStorage.disableRefresh == undefined) ? true : localStorage.disableRefresh == "true",
 			authToken: function() {
 				return 'Basic ' + $base64.encode(this.username + ':' + this.password);
 			},
@@ -20,6 +21,9 @@ settingsProvider.provider('settings', ['$base64', function($base64) {
 				}
 				if (newSettings.serverUrl) {
 					localStorage.serverUrl = newSettings.serverUrl;
+				}
+				if (newSettings.disableRefresh != undefined) {
+					localStorage.disableRefresh = newSettings.disableRefresh;
 				}
 			},
 			areComplete: function() {
