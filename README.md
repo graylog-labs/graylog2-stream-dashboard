@@ -17,6 +17,7 @@ Getting started for users
 * **Google Chrome does not allow those REST connections from webpages that were opened as files from disk.** Serve the `app` folder from a simple HTTP server or use another browser. Another way for Google Chrome is to start it with `--disable-web-security`, but we obviously do not recommend that.
 * You have to enable CORS support in `graylog2-server`. Put this in your `graylog2-server.conf`: `rest_enable_cors=true` ([Learn more about CORS](http://enable-cors.org/))
 * This is only compatible from Graylog2 v0.20.0 (not any preview or RC versions) on.
+* Refreshing the message list stops per default when the browser window is out of focus, to prevent unnecessary round trips to the server. If you do not want this behaviour, go to "Settings" and disable the checkbox right next to "Disable refresh when window out of focus?".
 
 The first setup can be as easy as this but we recommend hosting it in some webserver:
 
