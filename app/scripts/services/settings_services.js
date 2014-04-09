@@ -9,6 +9,7 @@ settingsProvider.provider('settings', ['$base64', function($base64) {
 			password: localStorage.password,
 			serverUrl: localStorage.serverUrl,
 			disableRefresh: (localStorage.disableRefresh == undefined) ? true : localStorage.disableRefresh == "true",
+			refreshInterval: localStorage.refreshInterval ? parseInt(localStorage.refreshInterval, 10) : 5000,
 			authToken: function() {
 				return 'Basic ' + $base64.encode(this.username + ':' + this.password);
 			},
@@ -25,9 +26,12 @@ settingsProvider.provider('settings', ['$base64', function($base64) {
 				if (newSettings.disableRefresh != undefined) {
 					localStorage.disableRefresh = newSettings.disableRefresh;
 				}
+				if (newSettings.refreshInterval) {
+					localStorage.refreshInterval = newSettings.refreshInterval;
+				}
 			},
 			areComplete: function() {
-				return (this.username && this.password && this.serverUrl);
+				return (this.username && this.password && this.serverUrl && this.refreshInterval);
 			}
 		};
 		return settings;

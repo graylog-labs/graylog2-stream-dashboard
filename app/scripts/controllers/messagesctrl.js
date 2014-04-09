@@ -49,7 +49,7 @@ angular.module('graylog2StreamdashApp')
 			}
 
 			$scope.update();
-		}, 5000);
+		}, Settings.refreshInterval);
 	}
 	
 	$scope.limit = 40;

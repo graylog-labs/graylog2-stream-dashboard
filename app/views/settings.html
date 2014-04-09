@@ -21,6 +21,10 @@
 
           <input type="checkbox" ng-model="settings.disableRefresh" id="disableRefresh"/> Disable refresh when window out of focus?
         </div>
+          <div class="form-group">
+              <label for="refresh-interval">Refresh Interval in ms</label>
+              <input type="number" ng-model="settings.refreshInterval" step="500" required class="form-control" id="refresh-interval" placeholder="Enter refresh interval">
+          </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
     </div>
