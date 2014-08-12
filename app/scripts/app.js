@@ -34,11 +34,13 @@ angular.module('graylog2StreamdashApp', [
         return response;
       },
       'responseError': function(rejection) {
-        var alert = {type: 'danger',
-          message: 'Unable to connect to graylog2 server! Please check your connection <a href="#/settings">settings.'};
+		if (rejection.config.url.indexOf("http://") >= 0 || rejection.config.url.indexOf("https://") >= 0) {
+	        var alert = {type: 'danger',
+	          message: 'Unable to connect to graylog2 server! Please check your connection <a href="#/settings">settings.'};
 
-        $rootScope.alerts = [alert];
-        $rootScope.noConnection = true;
+	        $rootScope.alerts = [alert];
+	        $rootScope.noConnection = true;
+		}
         return rejection;
       }
     };
