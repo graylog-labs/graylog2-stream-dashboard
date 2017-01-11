@@ -1,3 +1,5 @@
+## DEPRECATED: This project is discontinued. It may or may not work with your current Graylog version. The functionality it provides is now part of the live-tail feature of Graylog.
+
 # Graylog2 Stream Dashboard
 
 This is a small javascript web app that is showing you continuously updated dashboards for your Streams. It shows you the messages as they come in , as well as the most recent alarms that has been triggered for this stream.
